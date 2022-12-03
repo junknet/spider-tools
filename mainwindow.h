@@ -30,6 +30,8 @@ class MainWindow : public QMainWindow
     void on_diff_diff_window_textChanged();
 
 
+    void on_timestamp_raw_window_textChanged();
+
 private:
     Ui::MainWindow *ui;
 };

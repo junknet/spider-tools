@@ -42,7 +42,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <property name="usesScrollButtons">
        <bool>false</bool>
@@ -61,7 +61,7 @@
       </property>
       <widget class="QWidget" name="DIFF">
        <attribute name="title">
-        <string>DIFF</string>
+        <string>文本对比</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
@@ -74,7 +74,7 @@
       </widget>
       <widget class="QWidget" name="URL">
        <attribute name="title">
-        <string>URL</string>
+        <string>URL编码</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
@@ -87,7 +87,7 @@
       </widget>
       <widget class="QWidget" name="JSON">
        <attribute name="title">
-        <string>JSON</string>
+        <string>JSON格式化</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
@@ -95,6 +95,19 @@
         </item>
         <item>
          <widget class="QPlainTextEdit" name="json_formatted_window"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="timestamp">
+       <attribute name="title">
+        <string>时间戳</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QPlainTextEdit" name="timestamp_raw_window"/>
+        </item>
+        <item>
+         <widget class="QPlainTextEdit" name="timestamp_formated_window"/>
         </item>
        </layout>
       </widget>
