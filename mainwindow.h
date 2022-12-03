@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "qsourcehighliter.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -29,10 +30,10 @@ class MainWindow : public QMainWindow
 
     void on_diff_diff_window_textChanged();
 
-
     void on_timestamp_raw_window_textChanged();
 
-private:
-    Ui::MainWindow *ui;
+  private:
+    Ui::MainWindow                    *ui;
+    QSourceHighlite::QSourceHighliter *highlighter;
 };
 #endif // MAINWINDOW_H

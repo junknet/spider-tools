@@ -13,11 +13,17 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
+        dmp_diff.hpp
+        qsourcehighliter.h
+        qsourcehighliter.cpp
+        qsourcehighliterthemes.h
+        qsourcehighliterthemes.cpp
+        languagedata.h
+        languagedata.cpp
         main.cpp
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        dmp_diff.hpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

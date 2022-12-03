@@ -1,17 +1,21 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "dmp_diff.hpp"
+#include "qsourcehighliter.h"
 #include <QJsonDocument>
 #include <iostream>
 #include <string>
 
 using namespace std;
+using namespace QSourceHighlite;
 
 using MyersStringDiff = MyersDiff<string>;
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    highlighter = new QSourceHighliter(ui->json_formatted_window->document());
+    highlighter->setCurrentLanguage(QSourceHighlite::QSourceHighliter::CodeJSON);
 }
 
 MainWindow::~MainWindow()
@@ -100,10 +104,25 @@ void MainWindow::on_diff_diff_window_textChanged()
 
 void MainWindow::on_json_raw_window_textChanged()
 {
-    auto text           = ui->json_raw_window->toPlainText();
-    auto doc            = QJsonDocument::fromJson(text.toUtf8());
+    auto text  = ui->json_raw_window->toPlainText().trimmed();
+    auto start = text.indexOf('{');
+    auto end   = text.lastIndexOf('}');
+
+    if (end <= start)
+    {
+        return;
+    }
+    QString end_string   = "";
+    QString start_string = "";
+    if (end != text.length())
+    {
+        end_string = '\n' + text.mid(end + 1);
+    }
+    start_string        = text.mid(0, start) + "\n\n";
+    auto json_text      = text.mid(start, end - start + 1);
+    auto doc            = QJsonDocument::fromJson(json_text.toUtf8());
     auto formatted_json = doc.toJson(QJsonDocument::Indented);
-    ui->json_formatted_window->setPlainText(formatted_json);
+    ui->json_formatted_window->setPlainText(start_string.trimmed() + formatted_json + end_string.trimmed());
 }
 
 bool raw_changed = false;
