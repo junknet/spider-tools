@@ -14,12 +14,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         dmp_diff.hpp
-        qsourcehighliter.h
-        qsourcehighliter.cpp
-        qsourcehighliterthemes.h
-        qsourcehighliterthemes.cpp
-        languagedata.h
-        languagedata.cpp
+        json_synatx.cpp
+        json_synatx.h
         main.cpp
         mainwindow.cpp
         mainwindow.h

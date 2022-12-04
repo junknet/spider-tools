@@ -1,8 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "json_synatx.h"
 #include <QMainWindow>
-#include "qsourcehighliter.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -33,7 +33,7 @@ class MainWindow : public QMainWindow
     void on_timestamp_raw_window_textChanged();
 
   private:
-    Ui::MainWindow                    *ui;
-    QSourceHighlite::QSourceHighliter *highlighter;
+    Ui::MainWindow *ui;
+    Highlighter    *highlighter;
 };
 #endif // MAINWINDOW_H
